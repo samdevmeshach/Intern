@@ -1,0 +1,564 @@
+<html lang="en">
+<head>
+    <style>
+        *{
+            font-family: Cambria;
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+        <h3 style="text-align: right;">Schedule 1</h3>
+        <p style="font-size:20px;margin:0;">Accredited Investor (“AI”) Notification</p>
+    </header>
+    <h4 style="line-height:40px;"><u>Qualification for AI status</u></h4>
+    <h5 style="margin-bottom: 10px;font-weight: bold;">Individuals</h5>
+    <ul>
+        <li>
+            Net personal assets exceed S$2 million (or its equivalent in a foreign currency), but net equity of primary residence capped at S$1 million of the S$2 million threshold<sup>1</sup>; or
+        </li>
+        <li>
+            Net financial assets<sup>2</sup> (net of any related liabilities) exceed S$1 million (or its equivalent in a foreign currency); or
+        </li>
+        <li>
+            Income in the preceding 12 months is not less than S$300,000 (or its equivalent in a foreign currency); or
+        </li>
+        <li>
+            A person who holds a joint account with an AI, in respect of dealings through that joint account<sup>3</sup>.
+        </li>
+    </ul>
+    <h5 style="line-height:40px;margin-bottom: 10px;font-weight: bold;">Corporations</h5>
+    <ul>
+        <li>
+            Net assets exceed S$10 million (or its equivalent in a foreign currency)<sup>4</sup>; or
+        </li>
+        <li>
+            Entire share capital is owned by one or more persons, each of whom is an AI.
+        </li>
+    </ul>
+    <h5 style="line-height:40px;margin-bottom: 10px;font-weight: bold;">Entity (other than a corporation)</h5>
+    <ul>
+        <li>
+            Net assets exceed S$10 million (or its equivalent in a foreign currency).
+        </li>
+    </ul>
+    <h5 style="line-height:40px;margin-bottom: 10px;font-weight: bold;">Partnership (other than limited liability partnership)</h5>
+    <ul>
+        <li>
+            Each partner is an AI.
+        </li>
+    </ul>
+    <h5 style="line-height:40px;margin-bottom: 10px;font-weight: bold;">Trustee of Trust, when acting in that capacity where</h5>
+    <ul>
+        <li>
+            Trust property exceeds S$10 million in value (or its equivalent in a foreign currency); or
+        </li>
+        <li>
+            All beneficiaries of the trust are AIs; or
+        </li>
+        <li>
+            All settlors are AIs and have settlor reserved asset management, investment and revocation powers.        
+        </li>
+    </ul>
+    <br>
+    <p>______________________________</p>
+    <p><sup>1</sup> An individual’s primary residence refers to where the individual lives in most of the time and the value of the individual’s primary residence:</p>
+    <ol style="list-style-type:none">
+        <li>
+            (1) is to be calculated by deducting any outstanding amount in respect of any credit facility that is secured by the residence from the estimated fair market value of the residence; and
+        </li>
+        <li>
+            (2)	is taken to be the lower of the value calculated under (1) and S$1 million.
+        </li>
+    </ol>
+    <p><sup>2</sup> Where “financial asset” means:</p>
+    <ol style="list-style-type:none">
+        <li>
+            (1)	a deposit as defined in section 4B of the Banking Act;
+        </li>
+        <li>
+            (2)	an investment product as defined in section 2(1) of the Financial Advisors Act, which include securities, securities-based and other derivatives contracts, collective investment schemes, and life policies; or
+        </li>
+        <li>
+            (3)	any other asset as may be prescribed by regulations made under section 341 of the Securities and Futures Act.
+        </li>
+    </ol>
+    <p><sup>3</sup> In cases where one or more joint account holders are non-AI, the joint account may be treated as AI if:</p>
+    <ol style="list-style-type:none">
+        <li>
+            (1)	at least one joint account holder is an AI and has opted in to be treated as one; and
+        </li>
+        <li>
+            (2)	all joint account holders opt in to be treated as AIs in respect of dealings through the joint account only.
+        </li>
+    </ol>
+    <p><sup>4</sup> Net assets as determined by:</p>
+    <ol style="list-style-type:none">
+        <li>
+            (1)	the most recent audited balance-sheet of the corporation; or
+        </li>
+        <li>
+            (2)	where the corporation is not required to prepare audited accounts regularly, a balance-sheet of the corporation certified by the corporation as giving a true and fair view of the state of affairs of the corporation as of the date of the balance- sheet, which shall be a date within the preceding 12 months.
+        </li>
+    </ol>
+    <footer>
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 30px;">Accredited Investor Notification IR0319</p>
+    </footer>
+    <!-- Page 2 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+    </header>
+    <h4 style="line-height:20px;">The Monetary Authority of Singapore has recently introduced an opt-in regime which will provide investors the option of electing for AI status. This legislative amendment is aimed at enhancing regulatory safeguards for investors.</h4>
+    <h3 style="margin-top: 15px;"><u>Opting in as an AI</u></h3>
+    <p style="margin-top: 10px;">Investors who agree to be treated as AIs therefore forego the benefit of the following regulatory safeguards.</p>
+    <ul>
+        <li>
+            Issuers of securities are exempted from issuing a full prospectus registered with the Monetary Authority of Singapore (“MAS”) in respect of offers that are made only to accredited investors, and intermediaries are exempted from a number of business conduct requirements when dealing with accredited investors.
+        </li>
+        <li>
+            The Company is not required to disclose all material information relating to designed investment product including terms and conditions, fees and charges, benefits arising from the investment product, risks arising from the investment product; and
+        </li>
+        <li>
+            The Company is not required to provide a reasonable basis for providing recommendations on the investment products which includes but is not limited to the below:
+            <ol style="list-style-type: none;">
+                <li>
+                    a)  securities;
+                </li>
+                <li>
+                    b)  units in a collective investment scheme;
+                </li>
+                <li>
+                    c)	derivatives contracts;
+                </li>
+                <li>
+                    d)	spot foreign exchange contacts for the purposes of leveraged foreign exchange trading;
+                </li>
+                <li>
+                    e)	spot foreign exchange contracts other than for the purposes of leveraged foreign exchange trading; and
+                </li>
+                <li>
+                    f)	any life policy.
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <p style="margin-top: 10px;">You should consult a professional adviser if you are unsure of the consequences of being treated as an AI.</p>
+    <h3 style="margin-top: 15px;"><u>Opting out as an AI</u></h3>
+    <p style="margin-top: 10px;">If you do not want to opt-in as an AI, you will obtain a higher level of investor protection, but it also means that our services or products can no longer be provided to you. In this case, we will discuss with you to see whether we can continue providing our services to you.</p>
+    <p style="margin-top: 10px;">You may choose to opt-out as an AI at any point of time, upon which an Opt-out form will be provided to you for acknowledgement.</p>
+    <br><br>
+    <p style="margin-bottom: 40px;"><b>Note: Your decision to Opt in/Opt out will only affect the AI status of your account with Validus.</b></p>
+    <footer>
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 30px;">Accredited Investor Notification IR0319</p>
+    </footer>
+    <!-- Page 3 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+        <p style="font-size:20px;margin:0;line-height: 30px;font-weight: bold;">Occupation Declaration</p>
+        <p style="margin: 0%;line-height: 50px;">Please choose one of the below options that best describes your current Occupation.</p>
+    </header>
+    <div style="clear: both;">
+        <div style="width: 33.33%;float: left;">
+            <ul style="list-style-type: square;line-height: 30px;">
+                <li>ACCOUNTANT</li>
+                <li>ADMINISTRATION PROFESSIONAL</li>
+                <li>ARCHITECT</li>
+                <li>ARMED FORCES</li>
+                <li>ART / ANTIQUE DEALER</li>
+                <li>ARTISTE / MUSICIAN / CREW / PRODUCER</li>
+                <li>AUCTIONEER</li>
+                <li>BANKER</li>
+                <li>BUILDING CONSTRUCTION LABOURER</li>
+                <li>BUSINESS OWNER/SOLE PROPRIETOR</li>
+                <li>C-SUITE OFFICER</li>
+                <li>CABIN CREW</li>
+                <li>CHEF</li>
+                <li>CIVIL SERVANT</li>
+                <li>CLEANER/HOUSEKEEPER</li>
+                <li>CLERICAL STAFF</li>
+                <li>CUSTOMER SERVICE PROFESSIONAL</li>
+            </ul>
+        </div>
+        <div style="width: 33.33%;float: left;">
+            <ul style="list-style-type: square;line-height: 30px;">
+                <li>DESIGNER</li>
+                <li>COMPANY DIRECTOR / PARTNER</li>
+                <li>DRIVER</li>
+                <li>ELECTRICIAN</li>
+                <li>ENGINEER</li>
+                <li>FACTORY / MACHINE OPERATOR</li>
+                <li>F&B SERVICE CREW</li>
+                <li>HAIRDRESSER</li>
+                <li>HAWKER</li>
+                <li>HOTEL AND RESTAURANT MANAGER</li>
+                <li>INFORMATION TECHNOLOGY PROFESSIONAL</li>
+                <li>INSURANCE AGENT</li>
+                <li>JOURNALIST / REPORTER</li>
+                <li>LEGAL PROFESSIONAL</li>
+                <li>MEDICAL PROFESSIONAL</li>
+                <li>MONEY LENDER</li>
+                <li>PAWNBROKER</li>
+            </ul>
+        </div>
+        <div style="width: 33.33%;float: left;">
+            <ul style="list-style-type: square; line-height: 30px;">
+                <li>PHOTOGRAPHER</li>
+                <li>PILOT</li>
+                <li>PLUMBER</li>
+                <li>GOVERNMENT OFFICIAL / POLITICIAN</li>
+                <li>PROFESSOR</li>
+                <li>REAL ESTATE BROKER/AGENT</li>
+                <li>RECEPTIONIST</li>
+                <li>RETIRED</li>
+                <li>REMISER / TRADER / DEALER</li>
+                <li>SALES, MARKETING AND PUBLIC RELATIONS PROFESSIONAL</li>
+                <li>SCHOOL PRINCIPAL</li>
+                <li>SKILLED / PRODUCTION WORKER</li>
+                <li>SURVEYOR</li>
+                <li>TEACHING PROFESSIONAL</li>
+                <li>TECHNICIAN</li>
+                <li>TRAVEL AGENT / TOUR GUIDE</li>
+                <li>UNEMPLOYED</li>
+            </ul>
+        </div>
+    </div>
+    <ul style="float: left; margin-bottom: 40px;">
+        <br>
+        <li>OTHERS – Please specify:  ______________________________</li>
+    </ul>
+    <footer style="clear: both;">
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 30px;">Accredited Investor Notification IR0319</p>
+    </footer>
+    <!-- Page 4 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+        <p style="font-size:20px;margin:0;line-height: 30px;font-weight: bold;">Industry Declaration</p>
+        <p style="margin: 0%;line-height: 50px;">Please choose one of the below options that best describes your current Industry.</p>
+    </header>
+    <div style="clear: both;">
+        <div style="width: 50%;float: left;">
+            <ul style="list-style-type: square;line-height: 30px;">
+                <li>ACCOUNTING / AUDIT / CONSULTING</li>
+                <li>AGRICULTURE</li>
+                <li>ANTIQUES & ARTPIECE</li>
+                <li>BANKING / FINANCIAL / INSURANCE</li>
+                <li>CONSTRUCTION & DEVELOPMENT</li>
+                <li>EDUCATION</li>
+                <li>ENGINEERING</li>
+                <li>ENTERTAINMENT & RECREATION</li>
+                <li>FOOD & BEVERAGES</li>
+                <li>FORESTRY & LOGGING</li>
+                <li>GOVERNMENT BODIES</li>
+                <li>HOTEL & LODGING</li>
+                <li>INFORMATION TECHNOLOGY</li>
+                <li>LEGAL & JUDICIARY</li>
+                <li>LOGISTICS</li>
+            </ul>
+        </div>
+        <div style="width: 50%;float: left;">
+            <ul style="list-style-type: square;line-height: 30px;">
+                <li>MANUFACTURING</li>
+                <li>MEDIA & COMMUNICATIONS</li>
+                <li>MEDICAL & HEALTHCARE</li>
+                <li>MINING & QUARRYING</li>
+                <li>MONEY LENDING</li>
+                <li>NON-PROFIT ORGANISATION</li>
+                <li>OIL & GAS</li>
+                <li>PAWNSHOP</li>
+                <li>PROFESSIONAL SERVICES FIRM</li>
+                <li>REAL ESTATE</li>
+                <li>TRADING / RETAIL / WHOLESALE</li>
+                <li>TRANSPORTATION</li>
+                <li>UTILITIES</li>
+                <li>TRAVEL / TOURISM</li>
+            </ul>
+        </div>
+    </div>
+    <ul style="float: left; margin-bottom: 40px;">
+        <br>
+        <li>OTHERS – Please specify:  ______________________________</li>
+    </ul>
+    <footer style="clear: both;">
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 30px;">Accredited Investor Notification IR0319</p>
+    </footer>
+    <!-- Page 5 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+        <p style="font-size:20px;margin:0;line-height: 50px;font-weight: bold;">AI Declaration – For Individuals</p>
+        <p style="margin: 0%;">Please choose one of the below options to qualify as an AI per the Securities and Futures Act (SFA). Supporting documentation is subject to request at the company’s discretion.</p>
+    </header>
+    <ul style="list-style-type: square; line-height: 30px;">
+        <li>
+            <u>Option 1: Income Declaration</u><br>
+            <p>Per the SFA and as mentioned in Schedule 1, an individual qualifies as an AI if he/she has an income in the preceding 12 months not less than $300,000 SGD or its equivalent in a foreign currency.</p>
+            <table border="1">
+                <tr style="background-color: red;color: white;">
+                    <th>Income in the Preceding 12 months</th>
+                    <th>$ Amount</th>
+                    <th>Currency (e.g. SGD)</th>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);">
+                    <td>Employment</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Interest / Capital Gains</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204)">
+                    <td>Rental Income</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <ul style="list-style-type: square; line-height: 30px;">
+        <li>
+            <u>Option 2: Net Personal/Financial Assets Declaration</u><br>
+            <p><span style="font-weight: bold;">NPA:</span>	Per the SFA and as mentioned in Schedule 1, an individual qualifies as an AI if he/she has net personal assets that exceed in value the minimum amount of $2 million SGD or its equivalent in a foreign currency.</p>
+            <p style="margin-left: 10%;">Note: The estimated fair market value of an individual's primary residence less any outstanding credit facilities secured by that residence, shall not account for more than $1 million or its equivalent in a foreign currency.</p>
+            <p><span style="font-weight: bold;">NPA: </span>Per the SFA and as mentioned in Schedule 1, an individual qualifies as an AI if he/she has net financial assets that exceed in value the minimum amount of $1 million SGD or its equivalent in a foreign currency.</p>
+            <p>Please complete the following fields to calculate your Net Personal/Financial Assets.</p>
+            <table border="1">
+                <tr >
+                    <th></th>
+                    <th style="background-color: red;color: white;">$ SGD</th>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);font-weight: bold;">
+                    <td>Financial Assets (Net of Related Liabilities)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>cash</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);">
+                    <td>Securities</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Futures Contracts</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);">
+                    <td>Foreign Exchange Contracts</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Life Insurance Policy</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);border-bottom-color: red;">
+                    <td style="font-weight: bold;">Total Financial Assets</td>
+                    <td>REF.A</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Primary Property</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);">
+                    <td>Fair Market Value</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Less Mortgage (Credit Facility)</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);border-bottom-color: red;">
+                    <td style="font-weight: bold;">Net Value ($1,000,000 maximum allowed)</td>
+                    <td>REF.B</td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <footer style="margin-top: 30px;">
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 50px;">Accredited Investor Notification IR0319</p>
+    </footer>
+    <!-- Page 6 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+    </header>
+    <ul style="list-style-type: none; line-height: 30px;">
+        <li>
+            <table border="1">
+                <tr>
+                    <td style="font-weight: bold;">Additional Property</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);">
+                    <td>Fair Market Value</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Less Mortgage (Credit Facility)</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);border-bottom-color: red;">
+                    <td style="font-weight: bold;">Net Value</td>
+                    <td>REF.C</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Additional Property</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);">
+                    <td>Fair Market Value</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Less Mortgage (Credit Facility)</td>
+                    <td></td>
+                </tr>
+                <tr style="background-color: rgb(207, 204, 204);border-bottom-color: red;">
+                    <td style="font-weight: bold;">Net Value</td>
+                    <td>REF.D</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Total Net Personal Assets (A+B+C+D)</td>
+                    <td></td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <ul style="list-style-type: square; line-height: 30px;">
+        <li>
+            <u>Option 3: Joint Account Declaration</u><br>
+            <p>Per the SFA and as mentioned in Schedule 1, an individual qualifies as an AI if he/she holds a joint account with an AI, in respect of dealings through that joint account.</p>
+            <table border="1">
+                <tr style="background-color: red;color: white;">
+                    <th>Account Holder Name</th>
+                    <th>Identity Number</th>
+                    <th>Bank Name</th>
+                    <th>Account Numnber</th>
+                </tr>
+                <tr style="height: 30px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <p style="text-align: right;line-height: 50px;">(please complete an AI Declaration – For Individuals for each account holder)</p>
+    <hr>
+    <ul style="list-style-type: square; line-height: 30px;">
+        <li>
+            I agree and confirm that all of my particulars as provided to Validus, and the declaration, representation and warranty made above, are true and correct to the best of my knowledge and belief, and the representations I make herein shall remain to be accurate and true for so long as I have a relationship with Validus, and that Validus shall be duly entitled to rely on the accuracy of such information without any further investigation on Validus’s part;
+        </li>
+        <li>
+            I agree and undertake to promptly inform Validus if I cease at any time to qualify as an Accredited Investor;
+        </li>
+        <li>
+            I confirm that I have read and understood the information provided in Schedule 1 and agree that in view of my declaration, representation and warranty that I am an Accredited Investor, and am opting in as one as well. I further confirm that I have read and understood the consequences and rights of opting out as an Accredited Investor
+        </li>
+    </ul>
+    <div style="margin-left: 5%;margin-top: 30px;">
+        <p>SIGNATURE</p>
+        <p>_______________________________________________</p>
+        <p>NAME (PRINT NAME):</p>
+        <p>DESIGNATION:</p>
+    </div>
+    <div style="text-align: right;margin-top: -50px;">
+        <p>_______________________________________________</p>
+        <p>DATE</p>
+    </div>
+    <footer style="margin-top: 30px;">
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 50px;">Accredited Investor Notification IR0319</p>
+    </footer>
+    <!-- Page 7 -->
+    <header>
+        <img src="data:image/png;base64,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" style="width: 200px;height: 100px;" alt="">
+    </header>
+    <div style="background-color: rgb(223, 219, 219);height: 30px;">
+        <span style="padding-left: 30px;background-color: grey;padding-bottom: 10px;"></span>
+        For Office Use Only
+    </div>
+    <div style="width: 50%;margin: 30px;">
+        <p style="border: 1px solid black;background-color: rgb(168, 162, 162);">AI Qualification:</p>
+        <br>
+        <table border="1">
+            <tr>
+                <td colspan="3">
+                    <li style="list-style-type: square;">Income</li>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Total =</td>
+                <td></td>
+                <td>> S$300,000</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <li style="list-style-type: square;">NFA</li>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Ref. A =</td>
+                <td></td>
+                <td>> S$1,000,000</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <li style="list-style-type: square;">NPA</li>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Ref. A =</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Ref. B =</td>
+                <td></td>
+                <td>≤ S$1,000,000</td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Ref. C =</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Ref. D =</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Total =</td>
+                <td></td>
+                <td>> S$2,000,000</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <li style="list-style-type: square;">Joint Account</li>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">No. of AIs = </td>
+                <td></td>
+                <td>Additional AID per AI</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <p>_______________________________________________________</p>
+    <p>Name of RM:</p>
+    <p>Date:</p>
+    <footer style="margin-top: 30px;">
+        <p style="text-align: right;color: rgb(209, 204, 204);margin-bottom: 50px;">Accredited Investor Notification IR0319</p>
+    </footer>
+</body>
+</html>
